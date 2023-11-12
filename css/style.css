@@ -28,3 +28,17 @@ footer {
     background: #333;
     color: #fff;
 }
+
+.emoji {
+    position: absolute;
+    font-size: 24px; /* 可调整大小 */
+    animation-name: fall;
+    animation-duration: 4s; /* 落下时间 */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    from { top: -50px; }
+    to { top: 100%; }
+}
