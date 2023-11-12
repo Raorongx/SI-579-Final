@@ -42,3 +42,9 @@ footer {
     from { top: -50px; }
     to { top: 100%; }
 }
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
