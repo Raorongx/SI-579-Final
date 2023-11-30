@@ -1,12 +1,16 @@
 import React from 'react';
 import Calendar from './components/Calendar';
-import customReminder from './components/customReminder';
+import CustomReminder from './components/CustomReminder';
+import Notification from './components/Notification';
+// Import other necessary components
 
 const App = () => {
     return (
         <div>
             <Calendar />
-            {/* Other components like Reminder */}
+            <CustomReminder />
+            <Notification />
+            {/* Add other components here */}
         </div>
     );
 };
