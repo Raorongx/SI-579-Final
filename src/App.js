@@ -1,7 +1,7 @@
 import React from 'react';
-import DateTimeDisplay from './DateTimeDisplay';
-import HolidayReminder from './HolidayReminder';
-import ReminderList from './ReminderList';
+import DateTimeDisplay from './components/DateTimeDisplay';
+import HolidayReminder from './components/HolidayReminder';
+import ReminderList from './components/ReminderList';
 import './App.css'; 
 
 function App() {
