@@ -1,54 +1,47 @@
+// Countdown.js
 import React, { useState, useEffect } from 'react';
-import FireworkDisplay from './FireworkDisplay';
 
 const Countdown = ({ targetDate }) => {
-  const calculateTimeLeft = (date) => {
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft(targetDate));
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  function calculateTimeLeft(date) {
     const difference = +new Date(date) - +new Date();
+    let timeLeft = {};
+
     if (difference > 0) {
-      return {
+      timeLeft = {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
       };
     }
-    return {};
+
+    return timeLeft;
+  }
+
+  const renderTimeLeft = () => {
+    return Object.keys(timeLeft).length > 0 ? (
+      Object.keys(timeLeft).map(interval => (
+        <span key={interval}>
+          {timeLeft[interval]} {interval}{" "}
+        </span>
+      ))
+    ) : (
+      <span>时间到了！</span>
+    );
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
-  const [isCompleted, setIsCompleted] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const updatedTimeLeft = calculateTimeLeft(targetDate);
-      setTimeLeft(updatedTimeLeft);
-      if (Object.keys(updatedTimeLeft).length === 0 && !isCompleted) {
-        setIsCompleted(true);
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [targetDate]);
-
-  useEffect(() => {
-    if (Object.keys(timeLeft).length === 0 && !isCompleted) {
-      setIsCompleted(true);
-    }
-  }, [timeLeft]);
-
-  return (
-    <div>
-      {isCompleted ? (
-        <FireworkDisplay />
-      ) : (
-        Object.keys(timeLeft).map(interval => (
-          <span key={interval}>
-            {timeLeft[interval]} {interval}{" "}
-          </span>
-        ))
-      )}
-    </div>
-  );
+  return <div>{renderTimeLeft()}</div>;
 };
 
 export default Countdown;
+
