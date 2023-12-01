@@ -1,8 +1,8 @@
 import React from 'react';
-import DateTimeDisplay from './DateTimeDisplay';
-import HolidayReminder from './HolidayReminder';
-import ReminderList from './ReminderList';
-import FireworkDisplay from './FireworkDisplay';
+import DateTimeDisplay from './components/DateTimeDisplay';
+import HolidayReminder from './components/HolidayReminder';
+import ReminderList from './components/ReminderList';
+import FireworkDisplay from './components/FireworkDisplay';
 import './App.css';
 
 function App() {
