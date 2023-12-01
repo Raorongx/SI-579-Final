@@ -1,26 +1,48 @@
+/* App.css */
 .App {
-    text-align: center;
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 10vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .datetime-display, .holiday-reminder, .reminder-list {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    margin-left: 10px;
-  }
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #fff3e0; /* 暖色背景 */
+  color: #ff7043; /* 暖色文字 */
+}
+
+.datetime-display {
+  font-size: 60px; /* 时间显示的字体大小 */
+  font-weight: bold; /* 加粗字体 */
+  margin-bottom: 10px; /* 与下方内容的间距 */
+}
+
+.holiday-reminder, .reminder-list {
+  border: 1px solid #ffb74d;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: #ffecb3; /* 浅色背景，温馨感 */
+}
+
+.holiday-reminder {
+  min-width: 200px; /* 节日提醒的最小宽度 */
+}
+
+.reminder-list {
+  min-width: 250px; /* 提醒事项列表的最小宽度 */
+}
+
+button {
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+button:hover {
+  background-color: #ff5722; /* 鼠标悬浮时按钮的颜色 */
+}
+
+/* 可以根据需要继续添加或调整其他样式 */
+
   
