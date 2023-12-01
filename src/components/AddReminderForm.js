@@ -7,6 +7,10 @@ const AddReminderForm = ({ onAdd }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!text || !date) {
+      alert('请填写提醒内容和日期！');
+      return;
+    }
     onAdd({ text, date });
     setText('');
     setDate('');
@@ -14,20 +18,27 @@ const AddReminderForm = ({ onAdd }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="提醒内容"
-      />
-      <input
-        type="date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-      />
+      <div>
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="提醒内容"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required
+        />
+      </div>
       <button type="submit">添加提醒</button>
     </form>
   );
 };
 
 export default AddReminderForm;
+

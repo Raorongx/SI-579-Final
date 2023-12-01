@@ -13,18 +13,24 @@ const DateTimeDisplay = () => {
   }, []);
 
   const formatTime = date => {
-    // 转换为西五区时间
+    // Converting to Eastern Time Zone (you can adjust the time zone as needed)
     const localTime = date.toLocaleTimeString('en-US', { timeZone: 'America/New_York' });
-    return `${date.toLocaleDateString()} ${localTime}`;
+    return `${date.toLocaleDateString('en-US')} ${localTime}`;
+  };
+
+  const greeting = () => {
+    // Here you can add logic to show specific greetings for holidays or events
+    return "Have a great day!";
   };
 
   return (
     <div className="datetime-display">
       <div>{formatTime(currentTime)}</div>
-      {/* 你可以在这里添加问候语的逻辑 */}
+      <div>{greeting()}</div>
     </div>
   );
 };
 
 export default DateTimeDisplay;
+
 

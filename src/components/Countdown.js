@@ -1,12 +1,13 @@
+// Countdown.js
 import React, { useState, useEffect } from 'react';
-import FireworkDisplay from './FireworkDisplay';
+import FireworkDisplay from './FireworkDisplay'; // Make sure you have this component
 
 const Countdown = ({ targetDate }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
   const [isCompleted, setIsCompleted] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer = setInterval(() => {
       const updatedTimeLeft = calculateTimeLeft(targetDate);
       setTimeLeft(updatedTimeLeft);
       if (Object.keys(updatedTimeLeft).length === 0 && !isCompleted) {
@@ -14,8 +15,8 @@ const Countdown = ({ targetDate }) => {
       }
     }, 1000);
 
-    return () => clearTimeout(timer);
-  }, [timeLeft, targetDate, isCompleted]);
+    return () => clearInterval(timer);
+  }, [targetDate, isCompleted]);
 
   function calculateTimeLeft(date) {
     const difference = +new Date(date) - +new Date();
@@ -28,35 +29,27 @@ const Countdown = ({ targetDate }) => {
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
       };
+    } else {
+      setIsCompleted(true);
     }
 
     return timeLeft;
   }
-
-  const renderTimeLeft = () => {
-    return Object.keys(timeLeft).map(interval => {
-      if (!timeLeft[interval]) {
-        return null;
-      }
-      return (
-        <span key={interval}>
-          {timeLeft[interval]} {interval}{" "}
-        </span>
-      );
-    });
-  };
 
   return (
     <div>
       {isCompleted ? (
         <FireworkDisplay />
       ) : (
-        <div>
-          Countdown: {renderTimeLeft()}
-        </div>
+        Object.keys(timeLeft).map(interval => (
+          <span key={interval}>
+            {timeLeft[interval]} {interval}{" "}
+          </span>
+        ))
       )}
     </div>
   );
 };
 
 export default Countdown;
+
