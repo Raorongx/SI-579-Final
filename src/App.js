@@ -2,7 +2,6 @@ import React from 'react';
 import DateTimeDisplay from './components/DateTimeDisplay';
 import HolidayReminder from './components/HolidayReminder';
 import ReminderList from './components/ReminderList';
-//import FireworkDisplay from './components/FireworkDisplay';
 import './App.css';
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
         <HolidayReminder />
         <ReminderList />
       </div>
-     // <FireworkDisplay /> {/* 根据条件触发显示 */}
     </div>
   );
 }
