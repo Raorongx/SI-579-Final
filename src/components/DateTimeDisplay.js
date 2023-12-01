@@ -24,7 +24,7 @@ const DateTimeDisplay = () => {
   };
 
   return (
-    <div className="datetime-display">
+    <div className="datetime-display"> {/* Added class here */}
       <div>{formatTime(currentTime)}</div>
       <div>{greeting()}</div>
     </div>

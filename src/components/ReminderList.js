@@ -1,7 +1,6 @@
-// ReminderList.js
 import React, { useState } from 'react';
 import AddReminderForm from './AddReminderForm';
-import Countdown from './Countdown'; // Assuming you have Countdown component
+import Countdown from './Countdown';
 
 const ReminderList = () => {
   const [reminders, setReminders] = useState([]);
@@ -22,7 +21,7 @@ const ReminderList = () => {
         <div key={index} className="reminder-item">
           <div>{reminder.text} - {reminder.date}</div>
           <Countdown targetDate={reminder.date} />
-          <button onClick={() => deleteReminder(index)}>Delete</button>
+          <button onClick={() => deleteReminder(index)}>Delete</button> {/* Use the function here */}
         </div>
       ))}
     </div>
@@ -30,5 +29,3 @@ const ReminderList = () => {
 };
 
 export default ReminderList;
-
-
