@@ -1,32 +1,25 @@
-/* App.css */
 .App {
   display: flex;
   justify-content: space-around;
   padding: 20px;
-  background-color: #fff3e0; /* 暖色背景 */
-  color: #ff7043; /* 暖色文字 */
+  background-color: #fff3e0;
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  margin: 10px;
 }
 
 .datetime-display {
-  font-size: 60px; /* 时间显示的字体大小 */
-  font-weight: bold; /* 加粗字体 */
-  margin-bottom: 10px; /* 与下方内容的间距 */
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .holiday-reminder, .reminder-list {
   border: 1px solid #ffb74d;
   padding: 10px;
   border-radius: 10px;
-  margin: 10px;
-  background-color: #ffecb3; /* 浅色背景，温馨感 */
-}
-
-.holiday-reminder {
-  min-width: 200px; /* 节日提醒的最小宽度 */
-}
-
-.reminder-list {
-  min-width: 250px; /* 提醒事项列表的最小宽度 */
+  background-color: #ffecb3;
 }
 
 button {
@@ -36,11 +29,10 @@ button {
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
-  margin-top: 5px;
 }
 
 button:hover {
-  background-color: #ff5722; /* 鼠标悬浮时按钮的颜色 */
+  background-color: #ff5722;
 }
 
 
