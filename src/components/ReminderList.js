@@ -1,16 +1,17 @@
 // ReminderList.js
 import React, { useState } from 'react';
 import AddReminderForm from './AddReminderForm';
-import Countdown from './Countdown';
 
 const ReminderList = () => {
   const [reminders, setReminders] = useState([]);
 
-  const addReminder = (reminder) => {
+  // 添加提醒事项
+  const addReminder = reminder => {
     setReminders([...reminders, reminder]);
   };
 
-  const deleteReminder = (index) => {
+  // 删除提醒事项
+  const deleteReminder = index => {
     const newReminders = reminders.filter((_, i) => i !== index);
     setReminders(newReminders);
   };
@@ -21,7 +22,6 @@ const ReminderList = () => {
       {reminders.map((reminder, index) => (
         <div key={index}>
           {reminder.text} - {reminder.date}
-          <Countdown targetDate={reminder.date} />
           <button onClick={() => deleteReminder(index)}>删除</button>
         </div>
       ))}
@@ -30,3 +30,4 @@ const ReminderList = () => {
 };
 
 export default ReminderList;
+
