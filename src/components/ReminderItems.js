@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AddReminderForm from './AddReminderForm';
 import Countdown from './Countdown';
-import Confetti from 'react-confetti'; // Assuming you have an animation component like Confetti
+import Confetti from 'react-confetti';
 
 const ReminderItems = () => {
   const [reminders, setReminders] = useState([]);
@@ -13,9 +13,15 @@ const ReminderItems = () => {
       const parsedReminders = JSON.parse(storedReminders);
       setReminders(parsedReminders);
 
-      const today = new Date().toLocaleDateString('en-US');
-      const hasReminderToday = parsedReminders.some(reminder => new Date(reminder.date).toLocaleDateString('en-US') === today);
-      setShowAnimation(hasReminderToday);
+      const today = new Date().toLocaleDateString('en-US', { timeZone: 'America/New_York' });
+      const hasReminderToday = parsedReminders.some(reminder => 
+        new Date(reminder.date + 'T00:00:00').toLocaleDateString('en-US', { timeZone: 'America/New_York' }) === today
+      );
+
+      if (hasReminderToday) {
+        setShowAnimation(true);
+        setTimeout(() => setShowAnimation(false), 2000); // Hide animation after 2 seconds
+      }
     }
   }, []);
 
@@ -24,9 +30,10 @@ const ReminderItems = () => {
     setReminders(updatedReminders);
     localStorage.setItem('reminders', JSON.stringify(updatedReminders));
 
-    const today = new Date().toLocaleDateString('en-US');
-    if (new Date(newReminder.date).toLocaleDateString('en-US') === today) {
+    const today = new Date().toLocaleDateString('en-US', { timeZone: 'America/New_York' });
+    if (new Date(newReminder.date + 'T00:00:00').toLocaleDateString('en-US', { timeZone: 'America/New_York' }) === today) {
       setShowAnimation(true);
+      setTimeout(() => setShowAnimation(false), 2000); // Hide animation after 2 seconds
     }
   };
 

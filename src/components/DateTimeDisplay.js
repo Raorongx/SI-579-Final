@@ -1,26 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Clock from 'react-clock';
+import 'react-clock/dist/Clock.css';
 
-const DateTimeDisplay = ({ reminders }) => {
-  const [currentTime, setCurrentTime] = useState(new Date());
+// RealTimeClock Component
+const RealTimeClock = () => {
+  const [currentTime, setCurrentTime] = React.useState(new Date());
 
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = date => {
-    const localTime = date.toLocaleTimeString('en-US', { timeZone: 'America/New_York' });
-    return `${date.toLocaleDateString('en-US')} ${localTime}`;
+  const formatDate = (date) => {
+    return date.toLocaleDateString('en-US', { timeZone: 'America/New_York' });
   };
 
+  return (
+    <div className="clock-container">
+      <div className="date-display">{formatDate(currentTime)}</div>
+      <Clock value={currentTime} />
+    </div>
+  );
+};
+
+// Reminder Component
+const Reminder = ({ reminders }) => {
   const remindersTooltip = () => {
     return reminders.map(reminder => `${reminder.text} on ${reminder.date}`).join('\n');
   };
 
   const greeting = () => {
-    const today = new Date().toLocaleDateString('en-US');
     const nextReminder = reminders
       .filter(reminder => new Date(reminder.date) > new Date())
       .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
@@ -33,10 +44,15 @@ const DateTimeDisplay = ({ reminders }) => {
     }
   };
 
+  return <div title={remindersTooltip()}>{greeting()}</div>;
+};
+
+// DateTimeDisplay Component
+const DateTimeDisplay = ({ reminders }) => {
   return (
     <div className="datetime-display">
-      <div>{formatTime(currentTime)}</div>
-      <div title={remindersTooltip()}>{greeting()}</div>
+      <RealTimeClock />
+      <Reminder reminders={reminders} />
     </div>
   );
 };
