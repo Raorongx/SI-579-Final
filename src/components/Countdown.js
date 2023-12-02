@@ -36,7 +36,7 @@ const Countdown = ({ targetDate }) => {
         </span>
       ))
     ) : (
-      <span>时间到了！</span>
+      <span>Time is up!</span>
     );
   };
 

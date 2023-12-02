@@ -8,7 +8,7 @@ const AddReminderForm = ({ onAdd }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!text || !date) {
-      alert('请填写提醒内容和日期！');
+      alert('Please fill in something at least！');
       return;
     }
     if (typeof onAdd === 'function') {
@@ -29,7 +29,7 @@ const AddReminderForm = ({ onAdd }) => {
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="提醒内容"
+            placeholder="Remind me of?"
             required
           />
         </div>
@@ -41,7 +41,7 @@ const AddReminderForm = ({ onAdd }) => {
             required
           />
         </div>
-        <button type="submit">添加提醒</button>
+        <button type="submit">Add a reminder for yourself</button>
       </form>
     </div>
   );
