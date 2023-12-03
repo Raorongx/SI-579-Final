@@ -39,8 +39,11 @@ const HolidayCountdown = () => {
     <div className="holiday-countdown">
       {showConfetti && <Confetti />}
       {upcomingHoliday ? (
-        <div style={holidayStyle}>
-          <div>Next Holiday: {upcomingHoliday.localName} - {upcomingHoliday.date}</div>
+        <div>
+          <h2>Next Holiday</h2>
+          <h3>{upcomingHoliday.localName}</h3>
+          <h2>Countdown</h2>
+          <h3>{upcomingHoliday.date}</h3>
           <Countdown targetDate={upcomingHoliday.date} />
         </div>
       ) : (
@@ -48,6 +51,6 @@ const HolidayCountdown = () => {
       )}
     </div>
   );
-};
+}
 
 export default HolidayCountdown;
