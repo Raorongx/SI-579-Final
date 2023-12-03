@@ -44,16 +44,20 @@ const ReminderItems = () => {
   };
 
   return (
-    <div className="reminder-items">
+    <div className="reminder-items-container">
       {showAnimation && <Confetti />}
-      <AddReminderForm onAdd={addReminder} />
-      {reminders.map((reminder, index) => (
-        <div key={index} className="reminder-item">
-          <div>{reminder.text} - {reminder.date}</div>
-          <Countdown targetDate={reminder.date} />
-          <button onClick={() => deleteReminder(index)}>Delete</button>
-        </div>
-      ))}
+      <div className="add-reminder-form-container">
+        <AddReminderForm onAdd={addReminder} />
+      </div>
+      <div className="reminders-list-container">
+        {reminders.map((reminder, index) => (
+          <div key={index} className="reminder-item">
+            <div>{reminder.text} - {reminder.date}</div>
+            <Countdown targetDate={reminder.date} />
+            <button onClick={() => deleteReminder(index)}>Delete</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
