@@ -7,6 +7,8 @@ const ReminderItems = () => {
   const [reminders, setReminders] = useState([]);
   const [showAnimation, setShowAnimation] = useState(false);
 
+  const reminderSoundUrl = process.env.PUBLIC_URL + '/2254694745.mp3';
+
   useEffect(() => {
     const storedReminders = localStorage.getItem('reminders');
     if (storedReminders) {
@@ -20,7 +22,9 @@ const ReminderItems = () => {
 
       if (hasReminderToday) {
         setShowAnimation(true);
-        setTimeout(() => setShowAnimation(false), 2000); // Hide animation after 2 seconds
+
+        new Audio(reminderSoundUrl).play();
+        setTimeout(() => setShowAnimation(false), 150000); 
       }
     }
   }, []);
@@ -33,7 +37,9 @@ const ReminderItems = () => {
     const today = new Date().toLocaleDateString('en-US', { timeZone: 'America/New_York' });
     if (new Date(newReminder.date + 'T00:00:00').toLocaleDateString('en-US', { timeZone: 'America/New_York' }) === today) {
       setShowAnimation(true);
-      setTimeout(() => setShowAnimation(false), 2000); // Hide animation after 2 seconds
+
+      new Audio(reminderSoundUrl).play();
+      setTimeout(() => setShowAnimation(false), 150000); 
     }
   };
 
