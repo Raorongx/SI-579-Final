@@ -152,16 +152,16 @@ nav a:hover {
 }
 
 .add-reminder-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  margin: 20px auto 0 auto; 
-  width: 80%;
+  width: 100%; 
+  max-width: 600px; 
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px; 
   background-color: #ffc840;
   box-shadow: 0px 0px 10px rgb(9, 60, 94);
   border-radius: 8px;
 }
+
 
 .reminder-list {
   margin-top: 0; 
@@ -187,12 +187,13 @@ nav a:hover {
 
 .holiday-countdown {
   text-align: center; 
-  background:  #ffc840;
+  background:  #ffc840; 
   color: rgb(9, 60, 94); 
+  font-family: 'Comic Sans';
 }
 
 .holiday-countdown h3 {
-  font-size: 24px; 
+  font-size: 24px;
   font-weight: bold;
 }
 .holiday-countdown h2 {
