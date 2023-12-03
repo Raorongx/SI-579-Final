@@ -1,10 +1,11 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-}
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+
 .container { 
-  background-image: url('../public/WechatIMG26117.jpg');
+  background-image: url('../public/background.png');
   background-repeat: repeat;
   background-size: contain;  
   height: 100vh;
@@ -27,19 +28,23 @@ nav ul {
   list-style-type: none;
   padding: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly; 
+  align-items: center; 
   background-color: rgb(9, 60, 94);
-  margin: 0;
+  margin: 15px;
 }
 
 nav ul li {
-  margin: 10px;
+  margin: 25px;
+  width: 200px;
+  text-align: center;
 }
 
 nav a {
   text-decoration: none;
   color: #ffc840;
   font-weight: bold;
+  font-size: 1.2em;
 }
 
 nav a:hover {
@@ -52,10 +57,12 @@ nav a:hover {
   align-items: center;
   padding: 20px;
   margin-top: 20px;
-  width: 60%;
+  width: 80%; 
   background-color: #ffc840;
   box-shadow: 0px 0px 10px rgb(9, 60, 94);
   border-radius: 8px;
+  margin-left: auto;  
+  margin-right: auto; 
 }
 
 .add-reminder-form input, .add-reminder-form button {
@@ -108,4 +115,5 @@ nav a:hover {
 .date-display {
   margin-bottom: 10px; 
   font-size: 1.2em; 
+  font-weight: bold;
 }
