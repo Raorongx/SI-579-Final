@@ -1,7 +1,7 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   }
 
 .container { 
@@ -28,15 +28,16 @@ nav ul {
   list-style-type: none;
   padding: 0;
   display: flex;
-  justify-content: space-evenly; 
-  align-items: center; 
+  justify-content: space-evenly;
+  align-items: center;
   background-color: rgb(9, 60, 94);
   margin: 15px;
+  border-radius: 10px; /* 添加弧度 */
 }
 
 nav ul li {
-  margin: 25px;
-  width: 200px;
+  margin: 20px;
+  width: 210px;
   text-align: center;
 }
 
@@ -44,12 +45,17 @@ nav a {
   text-decoration: none;
   color: #ffc840;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  padding: 10px 20px; 
+  border-radius: 10px; 
 }
 
 nav a:hover {
   color: white;
+  background-color: #ffc840; 
+  transition: background-color 0.3s; 
 }
+
 
 .add-reminder-form {
   display: flex;
@@ -91,13 +97,17 @@ nav a:hover {
 }
 
 .reminder-list {
-  margin-top: 20px;
+  margin-top: 0;
   width: 80%;
   background-color: #ffc840;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgb(9, 60, 94);
+  max-height: 300px;
+  overflow-y: auto;
+  border: 2px solid #ffc840; 
 }
+
 
 .reminder-item {
   border-bottom: 1px solid #ffc840;
@@ -116,4 +126,76 @@ nav a:hover {
   margin-bottom: 10px; 
   font-size: 1.2em; 
   font-weight: bold;
+}
+
+.reminder-items-container {
+  display: flex;
+  margin: 20px; 
+}
+
+.add-reminder-form-container {
+  flex: 1; 
+  padding-right: 20px; 
+}
+
+.reminders-list-container {
+  flex: 2;  
+  padding-left: 20px;
+  max-height: 200px; 
+  overflow-y: auto; 
+}
+
+.reminder-item {
+  border: 1px solid #ccc; 
+  margin-bottom: 10px;
+  padding: 10px; 
+}
+
+.add-reminder-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 20px auto 0 auto; 
+  width: 80%;
+  background-color: #ffc840;
+  box-shadow: 0px 0px 10px rgb(9, 60, 94);
+  border-radius: 8px;
+}
+
+.reminder-list {
+  margin-top: 0; 
+  width: 80%;
+  background-color: #ffc840;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgb(9, 60, 94);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.add-reminder-form {
+  text-align: center; 
+}
+
+.add-reminder-form input,
+.add-reminder-form button {
+  margin: 10px auto;
+  width: 80%; 
+  display: block; 
+}
+
+.holiday-countdown {
+  text-align: center; 
+  background:  #ffc840;
+  color: rgb(9, 60, 94); 
+}
+
+.holiday-countdown h3 {
+  font-size: 24px; 
+  font-weight: bold;
+}
+.holiday-countdown h2 {
+  font-size: 20px; 
+  font-weight: normal;
 }
