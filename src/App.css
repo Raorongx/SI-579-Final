@@ -32,7 +32,7 @@ nav ul {
   align-items: center;
   background-color: rgb(9, 60, 94);
   margin: 15px;
-  border-radius: 10px; /* 添加弧度 */
+  border-radius: 10px;
 }
 
 nav ul li {
