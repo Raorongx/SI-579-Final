@@ -1,4 +1,3 @@
-// AddReminderForm.js
 import React, { useState } from 'react';
 
 const AddReminderForm = ({ onAdd }) => {
@@ -41,7 +40,7 @@ const AddReminderForm = ({ onAdd }) => {
             required
           />
         </div>
-        <button type="submit">Add a reminder for yourself</button>
+        <button type="submit">Add a reminder</button>
       </form>
     </div>
   );
