@@ -136,6 +136,7 @@ nav a:hover {
 .add-reminder-form-container {
   flex: 1; 
   padding-right: 20px; 
+  margin-right: 20px; 
 }
 
 .reminders-list-container {
@@ -143,6 +144,7 @@ nav a:hover {
   padding-left: 20px;
   max-height: 200px; 
   overflow-y: auto; 
+  margin-left: 20px; 
 }
 
 .reminder-item {
