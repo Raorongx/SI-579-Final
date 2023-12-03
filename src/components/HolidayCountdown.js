@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Countdown from './Countdown'; 
-// import Confetti from 'react-confetti'; // 可选：注释掉这个导入
 
 const HolidayCountdown = () => {
   const [upcomingHoliday, setUpcomingHoliday] = useState(null);
-  // const [showConfetti, setShowConfetti] = useState(false); // 不再需要这个状态
   const [holidayStyle, setHolidayStyle] = useState({});
   const YEAR = new Date().getFullYear();
   const COUNTRY_CODE = 'US';
@@ -18,8 +16,6 @@ const HolidayCountdown = () => {
         if (futureHolidays.length > 0) {
           setUpcomingHoliday(futureHolidays[0]);
           setHolidayStyle(getHolidayStyle(futureHolidays[0].localName));
-          // setShowConfetti(true); // 不再触发动态效果
-          // setTimeout(() => setShowConfetti(false), 10000); // 因此，这行也不再需要
         }
       })
       .catch(error => console.error('Error fetching holiday data:', error));
@@ -37,7 +33,6 @@ const HolidayCountdown = () => {
 
   return (
     <div className="holiday-countdown">
-      {/* {showConfetti && <Confetti />} */} {/* 注释掉或删除这一行来去除动态效果 */}
       {upcomingHoliday ? (
         <div>
           <h2>Next Holiday</h2>
