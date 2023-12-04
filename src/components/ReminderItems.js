@@ -9,6 +9,22 @@ const ReminderItems = () => {
 
   const reminderSoundUrl = process.env.PUBLIC_URL + '/2254694745.mp3';
 
+  // Function to handle starting and stopping the reminder notification
+  const handleReminderNotification = (start) => {
+    if (start) {
+      setShowAnimation(true);
+      const audio = new Audio(reminderSoundUrl);
+      audio.play();
+      // Set a timer to stop the animation and music after 25 seconds
+      setTimeout(() => {
+        setShowAnimation(false);
+        audio.pause();
+      }, 25000);
+    } else {
+      setShowAnimation(false);
+    }
+  };
+
   useEffect(() => {
     const storedReminders = localStorage.getItem('reminders');
     if (storedReminders) {
@@ -21,10 +37,7 @@ const ReminderItems = () => {
       );
 
       if (hasReminderToday) {
-        setShowAnimation(true);
-
-        new Audio(reminderSoundUrl).play();
-        setTimeout(() => setShowAnimation(false), 150000); 
+        handleReminderNotification(true);
       }
     }
   }, []);
@@ -36,10 +49,7 @@ const ReminderItems = () => {
 
     const today = new Date().toLocaleDateString('en-US', { timeZone: 'America/New_York' });
     if (new Date(newReminder.date + 'T00:00:00').toLocaleDateString('en-US', { timeZone: 'America/New_York' }) === today) {
-      setShowAnimation(true);
-
-      new Audio(reminderSoundUrl).play();
-      setTimeout(() => setShowAnimation(false), 150000); 
+      handleReminderNotification(true);
     }
   };
 
@@ -51,7 +61,6 @@ const ReminderItems = () => {
 
   return (
     <div className="reminder-items-container">
-      {showAnimation && <Confetti />}
       {showAnimation && <Confetti />}
       {showAnimation && <Confetti />}
       {showAnimation && <Confetti />}
