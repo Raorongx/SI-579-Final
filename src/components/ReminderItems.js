@@ -52,6 +52,12 @@ const ReminderItems = () => {
   return (
     <div className="reminder-items-container">
       {showAnimation && <Confetti />}
+      {showAnimation && <Confetti />}
+      {showAnimation && <Confetti />}
+      {showAnimation && <Confetti />}
+      {showAnimation && <Confetti />}
+      {showAnimation && <Confetti />}
+      {showAnimation && <Confetti />}
       <div className="add-reminder-form-container">
         <AddReminderForm onAdd={addReminder} />
       </div>
