@@ -3,8 +3,7 @@ import AddReminderForm from './AddReminderForm';
 import Countdown from './Countdown';
 import Confetti from 'react-confetti';
 
-const ReminderItems = () => {
-  const [reminders, setReminders] = useState([]);
+const ReminderItems = ({ reminders, setReminders }) => {
   const [showAnimation, setShowAnimation] = useState(false);
 
   const reminderSoundUrl = process.env.PUBLIC_URL + '/2254694745.mp3';
@@ -40,7 +39,7 @@ const ReminderItems = () => {
         handleReminderNotification(true);
       }
     }
-  }, []);
+  }, [setReminders]);
 
   const addReminder = (newReminder) => {
     const updatedReminders = [...reminders, newReminder];
