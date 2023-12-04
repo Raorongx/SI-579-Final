@@ -15,10 +15,10 @@ const App = () => {
     }
   }, []);
 
-  // 修改：将addReminder函数移至ReminderItems组件
+  
   return (
     <div className='container'>
-      <Router>
+      <Router basename="/SI-579-Final">
         <nav>
           <ul>
             <li><Link to="/date-time">Date & Time</Link></li>
