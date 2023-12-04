@@ -75,5 +75,3 @@ const ReminderItems = () => {
 };
 
 export default ReminderItems;
-
-export default ReminderItems;
