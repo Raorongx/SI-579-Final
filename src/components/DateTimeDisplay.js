@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Clock from 'react-clock';
 import 'react-clock/dist/Clock.css';
 
-// RealTimeClock Component
+
 const RealTimeClock = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
