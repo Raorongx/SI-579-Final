@@ -58,7 +58,7 @@ const ReminderItems = () => {
       <div className="reminders-list-container">
         {reminders.map((reminder, index) => (
           <div key={index} className="reminder-item">
-            <div>{reminder.text} - {reminder.date}</div>
+            <div>{reminder.text} - {reminder.date} - Category: {reminder.category}</div>
             <Countdown targetDate={reminder.date} />
             <button onClick={() => deleteReminder(index)}>Delete</button>
           </div>
@@ -67,5 +67,7 @@ const ReminderItems = () => {
     </div>
   );
 };
+
+export default ReminderItems;
 
 export default ReminderItems;
