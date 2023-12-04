@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import DateTimeDisplay from './components/DateTimeDisplay';
 import HolidayCountdown from './components/HolidayCountdown';
 import ReminderItems from './components/ReminderItems';
@@ -15,12 +15,7 @@ const App = () => {
     }
   }, []);
 
-  const addReminder = (newReminder) => {
-    const updatedReminders = [...reminders, newReminder];
-    setReminders(updatedReminders);
-    localStorage.setItem('reminders', JSON.stringify(updatedReminders));
-  };
-
+  // 修改：将addReminder函数移至ReminderItems组件
   return (
     <div className='container'>
       <Router>
@@ -32,9 +27,8 @@ const App = () => {
           </ul>
         </nav>
         <Routes>
-        {/* In App.js */}
           <Route path="/date-time" element={<DateTimeDisplay reminders={reminders} />} />
-          <Route path="/reminder-items" element={<ReminderItems onAdd={addReminder} reminders={reminders} />} />
+          <Route path="/reminder-items" element={<ReminderItems reminders={reminders} setReminders={setReminders} />} />
           <Route path="/holiday-countdown" element={<HolidayCountdown />} />
         </Routes>
       </Router>
